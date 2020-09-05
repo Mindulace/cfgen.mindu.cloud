@@ -2,34 +2,16 @@
     <div class="customfield-creator-wrapper">
         <div>
             <a @click="onClick()" class="btn btn-danger" href="#" role="button">Remove</a>
-            <form>
-                <div class="form-group">
-                    <label for="customFieldName">Name</label>
-                    <input type="text" class="form-control" id="customFieldName" placeholder="Enter name" v-model="customField.values.name">
-                </div>
-                <div class="form-group">
-                    <label for="customFieldType">Type</label>
-                    <select class="custom-select" id="customFieldType" v-model="customField.values.type">
-                        <option value="" selected disabled>Select type</option>
-                        <option value="CustomFieldTypes::BOOL">Boolean</option>
-                        <option value="CustomFieldTypes::DATETIME">Date/Time</option>
-                        <option value="CustomFieldTypes::FLOAT">Float</option>
-                        <option value="CustomFieldTypes::INT">Integer</option>
-                        <option value="CustomFieldTypes::JSON">JSON</option>
-                        <option value="CustomFieldTypes::TEXT">Text</option>
-                        <option value="CustomFieldTypes::HTML">HTML</option>
-                        <option value="CustomFieldTypes::SELECT">Select</option>
-                    </select>
-                </div>
-            </form>
-            <div v-for="(configuration, index) in options" :key="index">
-                test
-            </div>
+            <component v-for="(component, index) in configuration" :key="index" v-bind:is="component"></component>
         </div>
     </div>
 </template>
 
 <script>
+import Vue from 'vue'
+import optionElement from './elements/optionElement.vue'
+import headerElement from './elements/headerElement.vue'
+
 export default {
     name: 'customFieldCreator',
     props: [
@@ -41,22 +23,45 @@ export default {
         onClick: function() {
             delete this.customFields[this.index]
         },
-        recConfiguration: function(node) {
-            console.log(node)
-            Object.keys(node).forEach((entry) => {
-                console.log(entry)
-                // this.recConfiguration(entry);
-            });
+        getConfiguration: function(node, configuration = []) {
+            var optionField = Vue.extend(optionElement)
 
-            // console.log(node)
+            node.forEach(element => {
+                console.log(element)
+                if (element.type == 'option') {
+                    configuration.push(new optionField({
+                        propsData: {
+                            type: element.config.type,
+                            value: element.config.property
+                        }
+                    }));
+                } else if (element.type == 'header') {
+                    configuration.push(
+                        new headerElement({
+                            propsData: {
+                                label: element.label,
+                                // children: this.getConfiguration(element.children, configuration)
+                            }
+                        })
+                    );
+                }
+            })
+            console.log(configuration)
+            return configuration;
+
+            // console.log(this.customField.configuration)
         }
     },
     computed: {
         options: function() {
-            console.log(this.customField.config)
-            // return this.recConfiguration(this.customField.config);
-            return this.customField.config;
-        } 
+            // console.log(this.customField.configuration)
+            return this.recConfiguration(this.customField.configuration);
+            // return this.customField.config;
+        },
+        configuration: function() {
+            console.log(this.getConfiguration(this.customField.configuration))
+            return this.getConfiguration(this.customField.configuration);
+        }
     }
 }
 </script>

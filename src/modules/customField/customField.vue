@@ -9,27 +9,30 @@ export default {
         },
         getJson: function(){
             return this.properties;
+        },
+        getConfiguration: function() {
+            return this.configuration;
         }
     },
     data() {
         return {
-            'configuration': {
-                'type': 'header',
-                'value': 'CustomField',
-                'children': [
-                    {
-                        'type': 'option',
-                        'config': {
-                            'text': {
+            'configuration': [
+                {
+                    'type': 'header',
+                    'label': 'CustomField',
+                    'children': [
+                        {
+                            'type': 'option',
+                            'config': {
+                                'type': 'text',
                                 'default': '',
-                                'property': 'name',
+                                'property': 'name'
                             }
-                        }
-                    },
-                    {
-                        'type': 'option',
-                        'config': {
-                            'select': {
+                        },
+                        {
+                            'type': 'option',
+                            'config': {
+                                'type': 'select',
                                 'default': '',
                                 'property': 'type',
                                 'options': [
@@ -67,46 +70,54 @@ export default {
                                     }
                                 ]
                             }
+                        },
+                        {
+                            'type': 'header',
+                            'label': 'Label',
+                            'children': [
+                                {
+                                    'type': 'option',
+                                    'config': {
+                                        'type': 'text',
+                                        'default': '',
+                                        'property': 'label.deDE'
+                                    }
+                                },
+                                {
+                                    'type': 'option',
+                                    'config': {
+                                        'type': 'text',
+                                        'default': '',
+                                        'property': 'label.enGB'
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            'type': 'header',
+                            'label': 'helpText',
+                            'children': [
+                                {
+                                    'type': 'option',
+                                    'config': {
+                                        'type': 'text',
+                                        'default': '',
+                                        'property': 'helpText.deDE'
+                                    }
+                                },
+                                {
+                                    'type': 'option',
+                                    'config': {
+                                        'type': 'text',
+                                        'default': '',
+                                        'property': 'helpText.enGB'
+                                    }
+                                }
+                            ]
                         }
-                    },
-                    {
-                        'type': 'header',
-                        'value': 'Label',
-                        'children': [
-                            {
-                                'text': {
-                                    'default': '',
-                                    'property': 'label.deDE',
-                                },
-                            },
-                            {
-                                'text': {
-                                    'default': '',
-                                    'property': 'label.enGB',
-                                }
-                            }
-                        ]
-                    },
-                    {
-                        'type': 'header',
-                        'value': 'helpText',
-                        'children': [
-                            {
-                                'text': {
-                                    'default': '',
-                                    'property': 'helpText.deDE',
-                                },
-                            },
-                            {
-                                'text': {
-                                    'default': '',
-                                    'property': 'helpText.enGB',
-                                }
-                            }
-                        ]
-                    }
-                ],
-            },
+                    ],
+                }
+            ],
             'values': {
                 'name': '',
                 'type': '',
@@ -124,16 +135,16 @@ export default {
     computed: {
         properties: function() {
             return {
-                'name': this.configuration.name,
-                'type': jsonar.literal(this.configuration.type),
+                'name': this.values.name,
+                'type': jsonar.literal(this.values.type),
                 'config': {
                     'label': {
-                        'de-DE': this.configuration.label.deDE,
-                        'en-GB': this.configuration.label.enGB
+                        'de-DE': this.values.label.deDE,
+                        'en-GB': this.values.label.enGB
                     },
                     'helpText': {
-                        'de-DE': this.configuration.helpText.deDE,
-                        'en-GB': this.configuration.helpText.enGB
+                        'de-DE': this.values.helpText.deDE,
+                        'en-GB': this.values.helpText.enGB
                     }
                 }
             }
