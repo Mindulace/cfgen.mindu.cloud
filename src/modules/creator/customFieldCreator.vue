@@ -23,44 +23,36 @@ export default {
         onClick: function() {
             delete this.customFields[this.index]
         },
-        getConfiguration: function(node, configuration = []) {
-            var optionField = Vue.extend(optionElement)
+        getConfiguration: function(node) {
+            var optionField = Vue.extend(optionElement),
+                headerField = Vue.extend(headerElement),
+                configurationElements = []
 
             node.forEach(element => {
-                console.log(element)
                 if (element.type == 'option') {
-                    configuration.push(new optionField({
+                    configurationElements.push(new optionField({
                         propsData: {
                             type: element.config.type,
-                            value: element.config.property
+                            value: element.config.property,
+                            options: element.config.options
                         }
-                    }));
+                    }))
                 } else if (element.type == 'header') {
-                    configuration.push(
-                        new headerElement({
-                            propsData: {
-                                label: element.label,
-                                // children: this.getConfiguration(element.children, configuration)
-                            }
-                        })
-                    );
+                    configurationElements.push(new headerField({
+                        propsData: {
+                            label: element.label,
+                            children: this.getConfiguration(element.children)
+                        }
+                    }))
                 }
             })
-            console.log(configuration)
-            return configuration;
-
-            // console.log(this.customField.configuration)
+            
+            return configurationElements
         }
     },
     computed: {
-        options: function() {
-            // console.log(this.customField.configuration)
-            return this.recConfiguration(this.customField.configuration);
-            // return this.customField.config;
-        },
         configuration: function() {
-            console.log(this.getConfiguration(this.customField.configuration))
-            return this.getConfiguration(this.customField.configuration);
+            return this.getConfiguration(this.customField.configuration)
         }
     }
 }
