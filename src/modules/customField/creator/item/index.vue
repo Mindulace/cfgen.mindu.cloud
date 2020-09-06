@@ -4,7 +4,8 @@
             <a @click="onClick()" class="remove-button btn btn-danger position-absolute" href="#" role="button">Remove</a>
             <component v-for="(component, index) in configuration" :key="index" v-bind:is="component.type"
                 :propsData="component.propsData"
-                :customField="customField" />
+                :customField="customField"
+                :isRoot=true />
         </div>
     </div>
 </template>
