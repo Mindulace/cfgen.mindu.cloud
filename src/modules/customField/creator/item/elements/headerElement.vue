@@ -1,7 +1,7 @@
 <template>
     <div class="header-element-wrapper">
         <div class="form-group">
-            {{ propsData.label }}
+            <h3>{{ propsData.label }}</h3>
             <hr />
             <component class='pl-3' v-for="(component, index) in propsData.children" :key="index" v-bind:is="component.type"
                 :propsData="component.propsData"

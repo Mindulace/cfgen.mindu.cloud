@@ -1,7 +1,7 @@
 <template>
     <div ref="codeWrapper" class="code-wrapper p-1 bg-light rounded border border-dark">
         <code>
-            <pre>{{ code }}</pre>
+            <pre class="mb-0">{{ code }}</pre>
         </code>
     </div>
 </template>
@@ -32,7 +32,7 @@ export default {
         window.removeEventListener('scroll', this.handleScroll);
     },
     mounted() {
-        this.$refs.codeWrapper.style.maxHeight = `${window.innerHeight - 40}px`
+        this.$refs.codeWrapper.style.maxHeight = `${window.innerHeight / 1.4}px`
     }
 }
 </script>

@@ -1,7 +1,7 @@
 <template>
-    <div class="customfield-creator-wrapper">
-        <div>
-            <a @click="onClick()" class="btn btn-danger" href="#" role="button">Remove</a>
+    <div class="customfield-item-wrapper mb-3">
+        <div class="position-relative">
+            <a @click="onClick()" class="remove-button btn btn-danger position-absolute" href="#" role="button">Remove</a>
             <component v-for="(component, index) in configuration" :key="index" v-bind:is="component.type"
                 :propsData="component.propsData"
                 :customField="customField" />
@@ -63,3 +63,14 @@ export default {
     }
 }
 </script>
+
+<style>
+.remove-button {
+    right: 0px;
+    top: 0px;
+}
+
+.customfield-item-wrapper::not(:first-of-type) {
+    border-top: 1px solid #000
+}
+</style>

@@ -1,11 +1,19 @@
 <template>
-    <div class="page-wrapper container">
-        <div class="row mx-md-n5">
-            <div class="col px-md-5 p-3 bg-white rounded">
-                <a @click="onClick()" class="btn btn-primary" href="#" role="button">Add</a>
+    <div class="page-wrapper mt-5 container">
+        <div class="row justify-content-between">
+            <div class="col-5 bg-white rounded">
+                <div class="page-header mt-3 position-relative">
+                    <h1 class='mb-0'>Custom Fields</h1>
+                    <a @click="onClick()" class="add-button btn btn-primary position-absolute" href="#" role="button">Add</a>
+                </div>
+                <hr />
                 <creator />
             </div>
-            <div class="col px-md-5 p-3 bg-white rounded">
+            <div class="col-6 bg-white rounded">
+                <div class="page-header mt-3">
+                    <h1 class='mb-0'>Viewer</h1>
+                </div>
+                <hr />
                 <reader />
             </div>
         </div>
@@ -37,3 +45,15 @@ export default {
     }
 }
 </script>
+
+<style>
+.page-wrapper {
+    background: none
+}
+
+.add-button {
+    right: 0px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+</style>

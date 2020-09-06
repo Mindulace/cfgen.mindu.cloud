@@ -1,5 +1,10 @@
 <template>
     <div id="app">
+        <nav class="navbar navbar-dark bg-dark color-white">
+            <a class="navbar-brand" href="/">
+                cfgen.mindu.cloud
+            </a>
+        </nav>
         <index />
     </div>
 </template>
