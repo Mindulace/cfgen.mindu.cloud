@@ -26,7 +26,9 @@ export default {
         }
     },
     created() {
-        window.addEventListener('scroll', this.handleScroll);
+        if (window.innerWidth > 992) {
+            window.addEventListener('scroll', this.handleScroll);
+        } 
     },
     destroyed() {
         window.removeEventListener('scroll', this.handleScroll);
