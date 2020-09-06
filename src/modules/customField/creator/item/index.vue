@@ -34,7 +34,9 @@ export default {
                         propsData: {
                             type: element.config.type,
                             value: element.config.property,
-                            options: element.config.options
+                            options: element.config.options,
+                            label: element.config.label,
+                            property: element.config.property
                         }
                     }))
                 } else if (element.type == 'header') {

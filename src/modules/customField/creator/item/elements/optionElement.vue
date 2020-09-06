@@ -21,7 +21,9 @@ export default {
         'type',
         'value',
         'default',
-        'options'
+        'options',
+        'label',
+        'property'
     ]
 }
 </script>
