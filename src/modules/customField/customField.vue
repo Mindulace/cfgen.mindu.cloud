@@ -127,14 +127,10 @@ export default {
             'values': {
                 'name': '',
                 'type': '',
-                'label': {
-                    'deDE': '',
-                    'enGB': ''
-                },
-                'helpText': {
-                    'deDE': '',
-                    'enGB': ''
-                }
+                'label.deDE': '',
+                'label.enGB': '',
+                'helpText.deDE': '',
+                'helpText.enGB': ''
             }
         };
     },
@@ -145,12 +141,12 @@ export default {
                 'type': jsonar.literal(this.values.type),
                 'config': {
                     'label': {
-                        'de-DE': this.values.label.deDE,
-                        'en-GB': this.values.label.enGB
+                        'de-DE': this.values['label.deDE'],
+                        'en-GB': this.values['label.enGB']
                     },
                     'helpText': {
-                        'de-DE': this.values.helpText.deDE,
-                        'en-GB': this.values.helpText.enGB
+                        'de-DE': this.values['helpText.deDE'],
+                        'en-GB': this.values['helpText.enGB']
                     }
                 }
             }

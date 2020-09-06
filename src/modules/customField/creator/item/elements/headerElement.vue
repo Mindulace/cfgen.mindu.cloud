@@ -21,9 +21,6 @@ export default {
     props: [
         'customField',
         'propsData'
-    ],
-    mounted() {
-        console.log(this.customField)
-    }
+    ]
 }
 </script>
