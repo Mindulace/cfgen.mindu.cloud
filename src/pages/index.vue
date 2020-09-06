@@ -4,7 +4,7 @@
             <div class="panel col-12 col-lg-5 py-3 bg-dark rounded">
                 <div class="page-header position-relative">
                     <h1 class='mb-0'>Custom Fields</h1>
-                    <a @click="onClick()" class="add-button btn btn-primary position-absolute" href="#" role="button">Add</a>
+                    <a @click="onClick()" class="add-button btn btn-primary position-absolute" href="#" role="button"><i class="fa fa-plus" aria-hidden="true"></i></a>
                 </div>
                 <hr />
                 <creator />
