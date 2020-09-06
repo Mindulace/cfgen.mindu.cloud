@@ -19,9 +19,9 @@ export default {
             if ((codeWrapper.offsetTop - 20) < window.pageYOffset) {
                 var offset = window.pageYOffset - codeWrapper.offsetTop + 20
 
-                codeWrapper.setAttribute('style', `transform: translateY(${offset}px)`)
+                codeWrapper.style.transform = `translateY(${offset}px)`
             } else {
-                codeWrapper.removeAttribute('style')
+                codeWrapper.style.transform = ''
             }
         }
     },
@@ -30,6 +30,9 @@ export default {
     },
     destroyed() {
         window.removeEventListener('scroll', this.handleScroll);
+    },
+    mounted() {
+        this.$refs.codeWrapper.style.maxHeight = `${window.innerHeight - 40}px`
     }
 }
 </script>
@@ -37,5 +40,6 @@ export default {
 <style>
 .code-wrapper {
     transition: transform 0.2s ease-out;
+    overflow: scroll;
 }
 </style>
