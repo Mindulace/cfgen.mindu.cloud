@@ -13,7 +13,7 @@ import optionElement from './elements/optionElement.vue'
 import headerElement from './elements/headerElement.vue'
 
 export default {
-    name: 'customFieldCreator',
+    name: 'item',
     props: [
       'customField',
       'customFields',

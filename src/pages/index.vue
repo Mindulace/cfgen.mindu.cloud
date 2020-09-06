@@ -14,7 +14,7 @@
 
 <script>
 import Vue from 'vue'
-import creator from '../modules/creator/creator.vue'
+import creator from '../modules/customField/creator/'
 import reader from '../modules/reader/reader.vue'
 import customFieldComponent from '../modules/customField/customField.vue'
 

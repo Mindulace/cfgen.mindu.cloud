@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import codeViewer from './codeViewer.vue'
+import codeViewer from './viewer/codeViewer.vue'
 import jsonar from 'jsonar'
 
 export default {

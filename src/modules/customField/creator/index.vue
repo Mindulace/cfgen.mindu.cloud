@@ -1,18 +1,18 @@
 <template>
     <div class="creator-wrapper">
         <div v-for="(customField, index) in customFields" :key="index">
-            <customFieldCreator class="p-3 rounded creator-item" :customField='customField' :customFields="customFields" :index="index" />
+            <item class="p-3 rounded creator-item" :customField='customField' :customFields="customFields" :index="index" />
         </div>
     </div>
 </template>
 
 <script>
-import customFieldCreator from './customFieldCreator.vue'
+import item from './item/'
 
 export default {
-    name: 'creator',
+    name: 'customFieldCreator',
     components: {
-        customFieldCreator
+        item
     },
     props: [
       'customFields'
