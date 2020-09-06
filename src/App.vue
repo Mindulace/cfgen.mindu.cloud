@@ -29,4 +29,12 @@ export default {
     -moz-osx-font-smoothing: grayscale;
     color: #2c3e50;
 }
+
+.dark-mode #app {
+    background: #565656;
+}
+
+.dark-mode hr {
+    border-color: #565656
+}
 </style>

@@ -19,10 +19,10 @@ export default {
 
 <style>
     .creator-item {
-        transition: background-color 0.2s ease-in-out;
+        background-color: var(--light)
     }
 
-    .creator-item:hover {
-        background-color: var(--light)
+    .dark-mode .creator-item {
+        background-color: #2d3238
     }
 </style>
