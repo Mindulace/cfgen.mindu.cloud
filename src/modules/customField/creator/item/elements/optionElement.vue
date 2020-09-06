@@ -1,14 +1,14 @@
 <template>
     <div class="option-element-wrapper">
-        <div class="form-group" v-if="type == 'text'">
-            <label for="text">{{ label }}</label>
-            <input type="text" class="form-control" id="text" placeholder="" v-model="value">
+        <div class="form-group" v-if="propsData.type == 'text'">
+            <label for="text">{{ propsData.label }}</label>
+            <input type="text" class="form-control" :id="'text' + _uid" :placeholder="propsData.placeholder" v-model="customField.values[propsData.property]">
         </div>
-        <div class="form-group" v-if="type == 'select'">
-            <label for="select">{{ label }}</label>
-            <select class="custom-select" id="select" v-model="value">
-                <option value="" selected disabled>Select type</option>
-                <option v-for="(option, index) in options" :key="index" value="option.value">{{ option.label }}</option>
+        <div class="form-group" v-if="propsData.type == 'select'">
+            <label for="select">{{ propsData.label }}</label>
+            <select class="custom-select" :id="'select' + _uid" v-model="customField.values[propsData.property]">
+                <option value="" selected disabled>{{ propsData.placeholder }}</option>
+                <option v-for="(option, index) in propsData.options" :key="index" :value="option.value">{{ option.label }}</option>
             </select>
         </div>
     </div>
@@ -18,12 +18,8 @@
 export default {
     name: 'optionElement',
     props: [
-        'type',
-        'value',
-        'default',
-        'options',
-        'label',
-        'property'
+        'customField',
+        'propsData'
     ]
 }
 </script>

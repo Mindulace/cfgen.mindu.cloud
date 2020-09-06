@@ -18,23 +18,25 @@ export default {
         return {
             'configuration': [
                 {
-                    'type': 'header',
+                    'type': 'headerElement',
                     'label': 'CustomField',
                     'children': [
                         {
-                            'type': 'option',
+                            'type': 'optionElement',
                             'config': {
                                 'type': 'text',
-                                'default': '',
-                                'property': 'name'
+                                'placeholder': 'Enter name',
+                                'property': 'name',
+                                'label': 'Name',
                             }
                         },
                         {
-                            'type': 'option',
+                            'type': 'optionElement',
                             'config': {
                                 'type': 'select',
-                                'default': '',
+                                'placeholder': 'Select type',
                                 'property': 'type',
+                                'label': 'Type',
                                 'options': [
                                     {
                                         'value': 'CustomFieldTypes::BOOL',
@@ -72,45 +74,49 @@ export default {
                             }
                         },
                         {
-                            'type': 'header',
+                            'type': 'headerElement',
                             'label': 'Label',
                             'children': [
                                 {
-                                    'type': 'option',
+                                    'type': 'optionElement',
                                     'config': {
                                         'type': 'text',
-                                        'default': '',
-                                        'property': 'label.deDE'
+                                        'placeholder': 'Enter german label',
+                                        'property': 'label.deDE',
+                                        'label': 'de-DE'
                                     }
                                 },
                                 {
-                                    'type': 'option',
+                                    'type': 'optionElement',
                                     'config': {
                                         'type': 'text',
-                                        'default': '',
-                                        'property': 'label.enGB'
+                                        'placeholder': 'Enter english label',
+                                        'property': 'label.enGB',
+                                        'label': 'en-GB'
                                     }
                                 }
                             ]
                         },
                         {
-                            'type': 'header',
+                            'type': 'headerElement',
                             'label': 'helpText',
                             'children': [
                                 {
-                                    'type': 'option',
+                                    'type': 'optionElement',
                                     'config': {
                                         'type': 'text',
-                                        'default': '',
-                                        'property': 'helpText.deDE'
+                                        'placeholder': 'Enter german helptext',
+                                        'property': 'helpText.deDE',
+                                        'label': 'de-DE'
                                     }
                                 },
                                 {
-                                    'type': 'option',
+                                    'type': 'optionElement',
                                     'config': {
                                         'type': 'text',
-                                        'default': '',
-                                        'property': 'helpText.enGB'
+                                        'placeholder': 'Enter english helptext',
+                                        'property': 'helpText.enGB',
+                                        'label': 'en-GB'
                                     }
                                 }
                             ]
