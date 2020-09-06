@@ -1,7 +1,7 @@
 <template>
     <div class="customfield-item-wrapper mb-3">
         <div class="position-relative">
-            <a @click="onClick()" class="remove-button btn btn-danger position-absolute" href="#" role="button">Remove</a>
+            <a @click="onClick()" class="remove-button btn btn-danger position-absolute" href="#" role="button"><i class="fa fa-times" aria-hidden="true"></i></a>
             <component v-for="(component, index) in configuration" :key="index" v-bind:is="component.type"
                 :propsData="component.propsData"
                 :customField="customField" />

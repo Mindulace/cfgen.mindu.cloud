@@ -44,4 +44,13 @@ export default {
     transition: transform 0.2s ease-out;
     overflow: scroll;
 }
+
+.dark-mode .code-wrapper {
+    background-color: #2d3238 !important;
+    color: #fff !important;
+}
+
+.dark-mode .code-wrapper pre {
+    color: #fff !important;
+}
 </style>
