@@ -1,5 +1,5 @@
 <template>
-    <div class="reader-wrapper">
+    <div ref="reader-wrapper" class="reader-wrapper">
         <codeViewer :code='customFields' />
     </div>
 </template>
