@@ -15,13 +15,12 @@ import headerElement from './elements/headerElement.vue'
 export default {
     name: 'item',
     props: [
-      'customField',
-      'customFields',
-      'index'
+        'customField',
+        'index'
     ],
     methods: {
         onClick: function() {
-            delete this.customFields[this.index]
+            this.$store.commit('removeCustomField', this.customField)
         },
         getConfiguration: function(node) {
             var optionField = Vue.extend(optionElement),

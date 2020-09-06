@@ -5,10 +5,12 @@
 </template>
 
 <script>
-import index from './pages/index.vue'
+import index from './pages/'
+import store from './store/'
 
 export default {
     name: 'App',
+    store,
     components: {
         index
     }

@@ -1,7 +1,7 @@
 <template>
     <div class="creator-wrapper">
-        <div v-for="(customField, index) in customFields" :key="index">
-            <item class="p-3 rounded creator-item" :customField='customField' :customFields="customFields" :index="index" />
+        <div v-for="(customField, index) in this.$store.getters.getCustomFields" :key="index">
+            <item class="p-3 rounded creator-item" :customField='customField' :index="index" />
         </div>
     </div>
 </template>
@@ -13,10 +13,7 @@ export default {
     name: 'customFieldCreator',
     components: {
         item
-    },
-    props: [
-      'customFields'
-    ]
+    }
 }
 </script>
 

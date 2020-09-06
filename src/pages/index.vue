@@ -3,20 +3,18 @@
         <div class="row mx-md-n5">
             <div class="col px-md-5 p-3 bg-white rounded">
                 <a @click="onClick()" class="btn btn-primary" href="#" role="button">Add</a>
-                <creator :customFields="customFields" />
+                <creator />
             </div>
             <div class="col px-md-5 p-3 bg-white rounded">
-                <reader :customFields="customFields" />
+                <reader />
             </div>
         </div>
     </div>
 </template>
 
 <script>
-import Vue from 'vue'
 import creator from '../modules/customField/creator/'
-import reader from '../modules/reader/reader.vue'
-import customFieldComponent from '../modules/customField/customField.vue'
+import reader from '../modules/customField/reader/'
 
 export default {
     name: 'index',
@@ -26,9 +24,7 @@ export default {
     },
     methods: {
         onClick() {
-            var customField = Vue.extend(customFieldComponent);
-
-            this.customFields.push(new customField);
+            this.$store.commit('addCustomField')
         }
     },
     data() {

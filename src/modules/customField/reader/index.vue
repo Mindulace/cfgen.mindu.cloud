@@ -1,6 +1,6 @@
 <template>
     <div class="reader-wrapper">
-        <codeViewer :code='ccustomFields' />
+        <codeViewer :code='customFields' />
     </div>
 </template>
 
@@ -10,26 +10,23 @@ import jsonar from 'jsonar'
 
 export default {
     name: 'reader',
-    props: [
-        'customFields'
-    ],
     methods: {
         convertToPHP: function(json) {
             return jsonar.arrify(JSON.stringify(json), {prettify: true}).replaceAll('array(', "[").replaceAll(')', "]").replaceAll('	', '    ');
         }
     },
     computed: {
-        ccustomFields: {
+        customFields: {
             get: function() {
-                var lol = [];
+                var customFields = [];
 
-                this.customFields.forEach(customField => {
+                this.$store.getters.getCustomFields.forEach(customField => {
                     if (customField.isValid()) {
-                        lol.push(customField.getJson());
+                        customFields.push(customField.getJson());
                     }
                 });
 
-                return this.convertToPHP(lol);
+                return this.convertToPHP(customFields);
             }
         }
     },
