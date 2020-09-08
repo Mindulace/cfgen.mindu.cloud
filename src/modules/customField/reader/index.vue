@@ -20,7 +20,7 @@ export default {
             get: function() {
                 var customFields = [];
 
-                this.$store.getters.getCustomFields.forEach(customField => {
+                this.$store.customFields.getters.getCustomFields.forEach(customField => {
                     if (customField.isValid()) {
                         customFields.push(customField.getJson());
                     }

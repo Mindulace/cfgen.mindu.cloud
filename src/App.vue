@@ -10,6 +10,7 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
 import index from './pages/'
 import store from './store/'
 
@@ -18,6 +19,16 @@ export default {
     store,
     components: {
         index
+    },
+    computed: mapState(['notifications']),
+    watch: {
+        notifications() {
+            var currentNotification = this.$store.notifications.getters.getNewestNotification();
+
+
+            alert(`Title: ${currentNotification.getTitle()}, Text: ${currentNotification.getText()}, Timeout: ${currentNotification.getTimeout()}`);
+            this.$store.notifications.commit('removeNotification', currentNotification);
+        }
     }
 }
 </script>
