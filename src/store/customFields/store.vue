@@ -1,11 +1,11 @@
 <script>
-    import Vue from "vue"
-    import customField from "./customField"
+import Vue from "vue"
+import customField from "./customField"
 
-    const customFields = {
-    state: {
+const customFields = {
+    state: () => ({
         customFields: []
-    },
+    }),
     mutations: {
         addCustomField(state, payload) {
             if (payload) {

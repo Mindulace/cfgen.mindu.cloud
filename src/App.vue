@@ -16,18 +16,17 @@ import store from './store/'
 
 export default {
     name: 'App',
-    store,
+    store: store,
     components: {
         index
     },
     computed: mapState(['notifications']),
     watch: {
         notifications() {
-            var currentNotification = this.$store.notifications.getters.getNewestNotification();
-
+            var currentNotification = this.$store.getters.getNewestNotification();
 
             alert(`Title: ${currentNotification.getTitle()}, Text: ${currentNotification.getText()}, Timeout: ${currentNotification.getTimeout()}`);
-            this.$store.notifications.commit('removeNotification', currentNotification);
+            this.$store.commit('removeNotification', currentNotification);
         }
     }
 }

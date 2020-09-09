@@ -1,7 +1,7 @@
 <script>
-    import Notification from './notification.js'
+import Notification from './notification.js'
 
-    const notifications = {
+const notifications = {
     state: () => ({
         notifications: []
     }),
@@ -23,7 +23,7 @@
     },
     getters: {
         getNotifications: state => state.notifications,
-        gettNotification: state => state.notifications[0]
+        getNewestNotification: state => state.notifications[0]
     }
 }
 

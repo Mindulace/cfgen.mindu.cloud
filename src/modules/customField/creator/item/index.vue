@@ -25,7 +25,7 @@ export default {
     },
     methods: {
         onClick: function() {
-            this.$store.customFields.commit('removeCustomField', this.customField)
+            this.$store.commit('removeCustomField', this.customField)
         },
         getConfiguration: function(node) {
             var configurationElements = []

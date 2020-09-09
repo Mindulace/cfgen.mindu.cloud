@@ -32,8 +32,7 @@ export default {
     },
     methods: {
         onClick() {
-            console.log(this)
-            this.$store.customFields.commit('addCustomField')
+            this.$store.commit('addCustomField')
         }
     },
     data() {

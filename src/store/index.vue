@@ -8,8 +8,8 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
     modules: {
-        customFields,
-        notifications,
+        customField: customFields.customFields,
+        notifications: notifications.notifications,
     }
 });
 </script>
