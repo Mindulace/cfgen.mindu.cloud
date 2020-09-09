@@ -1,5 +1,5 @@
 <script>
-import Notification from './notification.js'
+import { Notification } from './notification.js'
 
 const notifications = {
     state: () => ({

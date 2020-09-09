@@ -1,6 +1,6 @@
 <template>
     <div id="app">
-        <nav class="navbar navbar-dark bg-dark color-white">
+        <nav @click="onClickLol" class="navbar navbar-dark bg-dark color-white">
             <a class="navbar-brand" href="/">
                 <b>mindu.cloud</b> - Custom Field
             </a>
@@ -10,7 +10,6 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
 import index from './pages/'
 import store from './store/'
 
@@ -20,13 +19,25 @@ export default {
     components: {
         index
     },
-    computed: mapState(['notifications']),
+    methods: {
+        onClickLol() {
+            this.$store.commit('addNotification', ["titel", "und der text"])
+            console.log(this.notifications)
+        }
+    },
+    computed: {
+        notifications (){
+            return this.$store.state.notifications.notifications
+        }
+    },
     watch: {
         notifications() {
-            var currentNotification = this.$store.getters.getNewestNotification();
+            var currentNotification = this.$store.getters.getNewestNotification;
 
-            alert(`Title: ${currentNotification.getTitle()}, Text: ${currentNotification.getText()}, Timeout: ${currentNotification.getTimeout()}`);
-            this.$store.commit('removeNotification', currentNotification);
+            if (currentNotification) {
+                alert(`Title: ${currentNotification.title}, Text: ${currentNotification.text}, Timeout: ${currentNotification.timeout}`);
+                this.$store.commit('removeNotification', currentNotification);
+            }
         }
     }
 }

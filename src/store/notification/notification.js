@@ -1,4 +1,4 @@
-const Notification = class Notification
+export class Notification
 {
     constructor(title, text, timeout = 5)
     {
@@ -7,19 +7,15 @@ const Notification = class Notification
         this.timeout = timeout;
     }
 
-    get title() {
+    title() {
         return this.title;
     }
 
-    get text() {
+    text() {
         return this.text;
     }
 
-    get timeout() {
+    timeout() {
         return this.timeout;
     }
-}
-
-export default {
-    Notification
 }
